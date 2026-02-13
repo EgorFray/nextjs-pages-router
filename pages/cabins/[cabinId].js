@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 
 export async function getServerSideProps({ params }) {
 	const cabin = await getCabin(params.cabinId);
-	return { props: { cabin }, revalidate:  };
+	return { props: { cabin }, revalidate: 3600 };
 }
 
 function Cabin(cabin) {
