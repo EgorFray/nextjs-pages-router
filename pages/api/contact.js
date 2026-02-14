@@ -5,12 +5,8 @@ export default async function handler(req, res) {
 		return res
 			.status(405)
 			.json({ success: false, message: "Please make a POST request" });
-	const contactData = {
-		fullName: "Yehor",
-		email: "Test",
-		subject: "Booking",
-		message: "hey",
-	};
+
+	const contactData = JSON.parse(req.body);
 
 	const { error } = await supabase.from("contacts").insert([contactData]);
 
